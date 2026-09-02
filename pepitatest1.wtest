@@ -1,0 +1,50 @@
+import pepita.*
+/*
+    Hacer volar a pepita 200 m. Su energía ahora se decrementó en 30 calorías, quedando en 70 calorías.
+    Verificar que no está cansada.
+    Hacer volar a pepita otros 350 m, consumiendo 45 calorías adicionales para finalizar en 25 calorías.
+    Ahora sí está cansada pepita.
+    Hacer que pepita descanse. Su energía aumenta 10 calorías, llegando a 35.
+    Comprobar que, luego de descansar, pepita ya no está cansada.
+*/
+
+test "Pepita test"{
+    pepita.volar(200)
+    assert.equals(70, pepita.energia())
+    assert.notThat(pepita.cansada())
+    pepita.volar(350)
+    assert.equals(25, pepita.energia())
+    assert.that(pepita.cansada())
+    pepita.descansar()
+    assert.equals(35, pepita.energia())
+    assert.notThat(pepita.cansada())
+}
+
+/*pepita inicia con 100 de energía
+pepita vuela 10 kms, 
+verificar que la energía de pepita es de 89
+pepita intenta volar 1000 kms, pero como no se puede (debe lanzar un error)
+verificar que la energía de pepita sigue siendo  89
+*/
+
+test "Pepita validacion"{
+    pepita.energia(100)
+    pepita.volar(10)
+    assert.equals(89, pepita.energia())
+    assert.throwsException({pepita.volar(1000)})
+    assert.equals(89, pepita.energia())
+}
+
+/*A Pepón le gusta alimentarse de manera variada y balanceada, por lo que solo come variado. Si se le da de comer lo mismo que comió la última vez se niega. Al iniciar el sistema se sabe que pepón comió manzana la última vez.
+
+Pepón inicia con 30 de energía y su último alimento fue manzana
+Pepón comer alpiste, quedando su energía en 42.5.
+Pepón intenta comer alpiste de nuevo,  pero no puede porque es lo que comió último (debe lanzar un error).
+Verificar que la energía de pepón se mantiene en  42.5.
+Si luego come manzana lo hace sin problemas.
+Intenta nuevamente comer una manzana, pero no se puede
+*/
+
+test "Pepon" {
+    pepon.comer(alpiste)
+}

@@ -1,0 +1,4 @@
+import ejercicio.pepon
+test "Pepon" {
+    pepon.comer(alpiste)
+}
