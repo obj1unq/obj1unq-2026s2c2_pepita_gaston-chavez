@@ -73,10 +73,18 @@ object manzana {
 
 object pepon {
   var energia = 30
+  var ultimoAlimento = manzana
 
   method comer(alimento) {
-    //self.validarComer(alimento)
-    energia = energia + (alimento.energiaQueAporta() / 2)
+    self.validarComer(alimento)
+    ultimoAlimento = alimento
+    energia = energia + alimento.energiaQueAporta() / 2
+  }
+
+  method validarComer(alimento) {
+    if(ultimoAlimento == alimento){
+      self.error("No se puede repetir la comida")
+    }
   }
 
   method volar(distancia) {

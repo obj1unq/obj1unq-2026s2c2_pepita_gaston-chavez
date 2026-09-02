@@ -45,6 +45,10 @@ Si luego come manzana lo hace sin problemas.
 Intenta nuevamente comer una manzana, pero no se puede
 */
 
-test "Pepon" {
+test "Pepon Alimento variado" {
     pepon.comer(alpiste)
+    assert.throwsException({pepon.comer(alpiste)})
+    assert.equals(42.5, pepon.energia())
+    pepon.comer(manzana)
+    assert.throwsException({pepon.comer(manzana)})
 }
