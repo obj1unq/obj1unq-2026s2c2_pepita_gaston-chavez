@@ -13,7 +13,7 @@ object pepita {
 
   method volar(distancia) {
     self.validarVolar(distancia)
-    energia = energia - 10 - distancia/10
+    energia = energia - self.energiaGastaraAlVolar(distancia)
   }
 
   method validarVolar(distancia){
